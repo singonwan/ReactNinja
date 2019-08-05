@@ -18,13 +18,17 @@
   <script type="text/babel">
     // class base react component 
     class App extends React.Component {
+      state = {
+        name:'george',
+        age: 26
+      }
       render() {
         return (
           // jsx - return one root component. className instead of class.
           // output dynamic js content in ptag
           <div className="app-content">
             <h1>Hey, ninja</h1>
-            <p>{ Math.random() * 10}</p>
+            <p>My name is {this.state.name} and I am { this.state.age}</p>
 
           </div>  
         )
