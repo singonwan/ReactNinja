@@ -22,6 +22,16 @@
         name:'george',
         age: 26
       }
+      handleClick(e){
+        console.log(e.target)
+        // console.log(this.state)
+      }
+      handleHover(e){
+        console.log(e.target, e.pageX)
+      }
+      handleCopy(e){
+        console.log("try being original");
+      }
       render() {
         return (
           // jsx - return one root component. className instead of class.
@@ -29,7 +39,9 @@
           <div className="app-content">
             <h1>Hey, ninja</h1>
             <p>My name is {this.state.name} and I am { this.state.age}</p>
-
+            <button onClick={this.handleClick}>Click me!</button>
+            <button onMouseOver={this.handleHover}>Hover me!</button>
+            <p onCopy={this.handleCopy}>What we think, we become</p>
           </div>  
         )
       }
