@@ -22,9 +22,23 @@
         name:'george',
         age: 26
       }
-      handleClick(e){
-        console.log(e.target)
-        // console.log(this.state)
+      handleClick = (e) =>{
+        // console.log(e.target)
+        // why can't we access this.state here? because of the 'this' keyword
+        // context of 'this' inside a function depends on where and how the function is called, not by where the func sits. 
+
+        //when we call a funciton in reaction to a DOM event like onCLick, the context of 'this' is lost and it becomes undefined
+        //this is normal behaviour of JS
+
+        //solution: arrow function. why?
+        //because they bind the value of 'this' to what 'this' is outside the function. 
+
+        //here we can change state with DOM events. ALWAYS use setState. good practice. 
+        this.setState({
+          name: 'G',
+          age: 99
+        })
+        console.log(this.state)
       }
       handleHover(e){
         console.log(e.target, e.pageX)
@@ -36,6 +50,9 @@
         return (
           // jsx - return one root component. className instead of class.
           // output dynamic js content in ptag
+
+          //how come we can access this.state here? 
+          //because this is a builtin react function. react auto binds the context of 'this' for us.
           <div className="app-content">
             <h1>Hey, ninja</h1>
             <p>My name is {this.state.name} and I am { this.state.age}</p>
