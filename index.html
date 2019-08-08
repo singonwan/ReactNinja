@@ -46,6 +46,15 @@
       handleCopy(e){
         console.log("try being original");
       }
+      handleChange = (e) =>{
+        this.setState({
+          name: e.target.value
+        })
+      }
+      handleSubmit = (e) =>{
+        e.preventDefault(); //this prevents the default behaviour of submit which refreshes the page
+        console.log('form submitted', this.state.name)
+      }
       render() {
         return (
           // jsx - return one root component. className instead of class.
@@ -53,12 +62,20 @@
 
           //how come we can access this.state here? 
           //because this is a builtin react function. react auto binds the context of 'this' for us.
+
+          //the reason for onSubmit is because pressing enter also submits not just clicking the button. so onClick on button
+          //wont work for the enter case. 
           <div className="app-content">
             <h1>Hey, ninja</h1>
             <p>My name is {this.state.name} and I am { this.state.age}</p>
             <button onClick={this.handleClick}>Click me!</button>
             <button onMouseOver={this.handleHover}>Hover me!</button>
             <p onCopy={this.handleCopy}>What we think, we become</p>
+            
+            <form onSubmit={this.handleSubmit}>
+              <input type="text" onChange= {this.handleChange}/>
+              <button>Submit!</button>
+            </form>
           </div>  
         )
       }
