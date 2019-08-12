@@ -2,11 +2,14 @@ import React, { Component } from 'react';
 
 class Ninjas extends Component{
     render(){
+        // console.log(this.props);
+        //destructuring, var names must be the same as prop names
+        const { name, age, belt} = this.props;
         return(
             <div className="ninja">
-                <div>Name: Gwan</div>
-                <div>Age: 26</div>
-                <div>Belt: Black</div>
+                <div>Name: {name}</div>
+                <div>Age: {age}</div>
+                <div>Belt: {belt}</div>
             </div>
         )
     }
