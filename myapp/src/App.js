@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Ninjas from './Ninjas';
+import AddNinja from './AddNinja'
 
 //this is our ROOT COMPONENT that is rendered to the DOM
 // App is the parent component of Ninja. Ninjas is the child component. inheritance. nesting
@@ -21,6 +22,7 @@ class App extends Component {
       <h1>My First ReactApp</h1>
       <p>Welcome!</p>
       <Ninjas ninjas={this.state.ninjas} />
+      <AddNinja />
     </div>
     );
   }

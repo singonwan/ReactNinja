@@ -44,4 +44,4 @@ const Ninjas = ({ninjas}) => { //destruct in here instead of down there.
     )
 }
 
-export default Ninjas
+export default Ninjas;
