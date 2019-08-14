@@ -14,7 +14,8 @@ class AddNinja extends Component {
     }
     handleSubmit = (e) => {
         e.preventDefault();
-        console.log(this.state)
+        //passing new ninj back up to App
+        this.props.addNinj(this.state);
     }
     render(){
         return (
