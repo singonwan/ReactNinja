@@ -12,7 +12,7 @@ class App extends Component {
   state = {
     ninjas :[ 
       {name: 'Gwan', age: 26,  belt: 'Brack', id: 1 },
-      {name: 'Roni', age: 25,  belt: 'Blue', id: 2 },
+      {name: 'Roni', age: 26,  belt: 'Blue', id: 2 },
       {name: 'Ed', age: 25,  belt: 'Green', id: 3 }
     ]
   }
@@ -27,12 +27,23 @@ class App extends Component {
       ninjas: ninjas
     })
   }
+  deleteNinj = (id) => {
+    // remember we cant destruct or alter the state directly.  
+    //  instead we can use a nondestructive method, filter. -> cycles thru array, returns a new array and filter certain object based on condition
+    let ninjas = this.state.ninjas.filter(ninja => {
+      //this callback func(func passed within func) for each ninja if returns true, it will not be filtered. if false, it will be filtered.
+      return ninja.id !== id
+    });
+    this.setState({
+      ninjas: ninjas
+    })
+  }
   render() {
     return (
     <div className="App">
       <h1>My First ReactApp</h1>
       <p>Welcome!</p>
-      <Ninjas ninjas={this.state.ninjas} />
+      <Ninjas deleteNinj={this.deleteNinj} ninjas={this.state.ninjas} />
       <AddNinja addNinj={this.addNinj}/>
     </div>
     );
